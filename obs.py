@@ -6,10 +6,10 @@ import json, keyboard, configparser
 
 settings = {}
 
-def init():
+def init(configPath):
     print('Initializing...')
     config = configparser.ConfigParser()
-    readConfig = config.read("C:\\Users\\jbanasik\\Documents\\obs-tools\\configuration.ini")
+    readConfig = config.read(configPath)
     settings['name'] = config.get('systems', 'name')
     settings['version'] = config.get('systems', 'version')
     settings['scene'] = {}
@@ -27,7 +27,11 @@ def init():
 #---- OBS Specific functions
 
 def script_load(settings):
-    init()#Read the setting for configuration file from OBS, if it's not set, don't init(), send user instructions instead
+    settings['obsSettings'] = settings
+    configPath = obs.obs_data_get_string(settings['obsSettings'], "cpath")
+    print(type(configPath))
+    if len(configPath) > 0:
+        init(configPath)
 
 def script_description():
     return "OBS Tweener\n\nby Jordan Banasik\nIdea, code, and help given by @VodBox https://github.com/VodBox/obs-scripts"
@@ -36,6 +40,14 @@ def script_properties():
     props = obs.obs_properties_create()
     obs.obs_properties_add_path(props, 'cpath', 'Configuration path', obs.OBS_PATH_FILE, '*.ini', None)
     return props
+
+def script_tick(tick):
+    if animating:
+        print('animating')
+    print(tick)
+
+def script_update(settings):
+    settings['obsSettings'] = settings    
 
 #---- Utilities
 
