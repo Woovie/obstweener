@@ -4,7 +4,7 @@ import json, keyboard, configparser
 
 #---- First exec startup
 
-settings = {}
+gSettings = None
 
 def init(configPath):
     print('Initializing...')
@@ -27,6 +27,7 @@ def init(configPath):
 #---- OBS Specific functions
 
 def script_load(settings):
+    global gSettings
     settings['obsSettings'] = settings
     configPath = obs.obs_data_get_string(settings['obsSettings'], "cpath")
     print(type(configPath))
@@ -47,7 +48,8 @@ def script_tick(tick):
         print('anime')
 
 def script_update(settings):
-    settings['obsSettings'] = settings    
+    global gSettings
+    gSettings = settings    
 
 #---- Utilities
 
