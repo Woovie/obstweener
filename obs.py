@@ -44,8 +44,7 @@ def script_properties():
 def script_tick(tick):
     animating = False
     if animating:
-        print('animating')
-    print(tick)
+        print('anime')
 
 def script_update(settings):
     settings['obsSettings'] = settings    
