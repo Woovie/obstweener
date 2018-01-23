@@ -42,6 +42,7 @@ def script_properties():
     return props
 
 def script_tick(tick):
+    animating = False
     if animating:
         print('animating')
     print(tick)
