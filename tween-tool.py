@@ -33,11 +33,6 @@ def init(configPath):
 def script_load(settings):
     global gSettings
     gSettings = settings
-    configPath = obs.obs_data_get_string(gSettings, "cpath")
-    if len(configPath) > 0 and os.path.isfile(configPath):
-        init(configPath)
-    else:
-        print('%s does not exist'%(configPath))
 
 def script_description():
     return "OBS Tweener\n\nby Jordan Banasik\nIdea, code, and help given by @VodBox https://github.com/VodBox/obs-scripts"
@@ -67,5 +62,10 @@ def script_update(settings):
 def setupKeybinds():
     print('Setting keybinds...')
 
-def prepareSceneSettings(sceneData):
-    print(sceneData)
+def prepareSceneSettings(sceneData, configFilePath):
+    sceneName = sceneData['sceneName']
+    tweeners = sceneData['tweeners']
+    settings['scene'][sceneName] = {}
+    for tweener in tweeners:
+        tweenerName = tweener['name']
+        settings['scene'][sceneName][tweenerName] = tweener
