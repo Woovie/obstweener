@@ -1,0 +1,63 @@
+{
+  "sceneName": "One",
+  "tweeners": [
+    {
+      "name": "position 1",
+      "keybind": "a",
+      "easeInMult": 1,
+      "easeOutMult": 1,
+      "speed": 200,
+      "items": {
+        "Cube1": {
+          "pos": {"x": 1, "y": 1},
+          "rot": 0,
+          "scale": {"x": 1, "y": 1},
+          "alignment": "alignment",
+          "bounds": {"x": 1, "y": 1},
+          "boundsType": "type",
+          "boundsAlignment": "alignment",
+          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
+        },
+        "Cube2": {
+          "pos": {"x": 1, "y": 1},
+          "rot": 0,
+          "scale": {"x": 1, "y": 1},
+          "alignment": "alignment",
+          "bounds": {"x": 1, "y": 1},
+          "boundsType": "type",
+          "boundsAlignment": "alignment",
+          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
+        }
+      }
+    },
+    {
+      "name": "position 2",
+      "keybind": "s",
+      "easeInMult": 1,
+      "easeOutMult": 1,
+      "speed": 200,
+      "items": {
+        "Cube1": {
+          "pos": {"x": 1, "y": 1},
+          "rot": 0,
+          "scale": {"x": 1, "y": 1},
+          "alignment": "alignment",
+          "bounds": {"x": 1, "y": 1},
+          "boundsType": "type",
+          "boundsAlignment": "alignment",
+          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
+        },
+        "Cube2": {
+          "pos": {"x": 1, "y": 1},
+          "rot": 0,
+          "scale": {"x": 1, "y": 1},
+          "alignment": "alignment",
+          "bounds": {"x": 1, "y": 1},
+          "boundsType": "type",
+          "boundsAlignment": "alignment",
+          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
+        }
+      }
+    }
+  ]
+}

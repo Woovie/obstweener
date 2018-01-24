@@ -11,19 +11,16 @@ def init(configPath):
     print('Initializing...')
     config = configparser.ConfigParser()
     readConfig = config.read(configPath)
-    if config.has_section('systems'):
-        settings['name'] = config.get('systems', 'name')
-        settings['version'] = config.get('systems', 'version')
+    if config.has_section('tool'):
+        settings['name'] = config.get('tool', 'name')
+        settings['version'] = config.get('tool', 'version')
         settings['scene'] = {}
         for scene in config.items('scenes'):
             sceneName = scene[0]
             sceneConfig = scene[1]
-            settings['scene'][sceneName] = {}
-            settings['scene'][sceneName]['configFile'] = sceneConfig
             if os.path.isfile(sceneConfig):
                 with open(sceneConfig) as jsonData:
-                    settings['scene'][sceneName]['config'] = json.load(jsonData)
-                print('loaded %s'%(sceneConfig))
+                    prepareSceneSettings(json.load(jsonData), sceneConfig)
             else:
                 print('%s does not exist'%(sceneConfig))
         print('%s scenes loaded.'%(len(settings['scene'])))
@@ -70,3 +67,5 @@ def script_update(settings):
 def setupKeybinds():
     print('Setting keybinds...')
 
+def prepareSceneSettings(sceneData):
+    print(sceneData)
