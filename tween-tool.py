@@ -6,7 +6,15 @@ import json, keyboard, configparser, os.path
 
 gSettings = None
 settings = {}
-animating = False
+settings['animating'] = False
+settings['animinfo'] = {
+    'initial': [],
+    'destination': [],
+    'animtime': math.inf,
+    'stoptime': 1000,
+    'scene': None
+}
+
 
 def init(configPath):
     print('Initializing...')
@@ -44,10 +52,10 @@ def script_properties():
     return props
 
 def script_tick(tick):
-    global animating
-    if animating:
-        print('anime')
-        animating = False
+    if settings['animating']:
+        
+        if settings['scene'] == 
+        settings['animating'] = False
 
 def script_update(settings):
     global gSettings
@@ -61,6 +69,14 @@ def script_update(settings):
 
 
 #---- Utilities
+
+#t = current time, b = start value, c = change in value, d = duration
+def easeInOutQuad(t, b, c, d):
+    t=/d/2
+    if t<1:
+        return c/2*t*t+b
+    t-=1
+    return -c/2*(t*(t-2)-1)+b)
 
 def prepareSceneSettings(sceneData, configFilePath):
     sceneName = sceneData['sceneName']
@@ -76,10 +92,12 @@ def prepareSceneSettings(sceneData, configFilePath):
         print('%s tweens loaded'%(len(settings['scene'][sceneName]['tweeners'])))
         print('Setting keybinds for scene %s'%(sceneName))
         for tweener in settings['scene'][sceneName]['tweeners']:
+            tweener = settings['scene'][sceneName]['tweeners'][tweener]
             bindKey(sceneName, tweener['keybind'], tweener['name'])
 
 
 def initTween():
+    settings['animInfo'] = {}
     currentScene = obs.obs_frontend_get_current_scene()
     sceneName = obs.obs_source_get_name(currentScene)
     if settings['scene'][sceneName]:
@@ -89,8 +107,9 @@ def initTween():
 
 def bindKey(scene, key, tweener):
     print('binding %s to %s in %s'%(key, tweener, scene))
-    keyboard.add_hotkey(key, lambda: tweenTo(scene, tweener))
+    capture_return = keyboard.add_hotkey(key, lambda: tweenTo(scene, tweener))
 
 def tweenTo(scene, tweener):
-    global animation
-    animation = True
+    settings['animating'] = True
+    settings['scene'] = scene
+    settings['tweener'] = tweener
