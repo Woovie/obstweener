@@ -55,6 +55,7 @@ def script_update(settings):
     configPath = obs.obs_data_get_string(gSettings, "cpath")
     if len(configPath) > 0 and os.path.isfile(configPath):
         init(configPath)
+        print('loaded %s'%(configPath))
     else:
         print('Could not load %s'%(configPath))
 
@@ -63,17 +64,19 @@ def script_update(settings):
 
 def prepareSceneSettings(sceneData, configFilePath):
     sceneName = sceneData['sceneName']
-    print('Configuring scene %s'%(sceneName))
-    tweeners = sceneData['tweeners']
-    settings['scene'][sceneName] = {}
-    settings['scene'][sceneName]['tweeners'] = {}
-    for tweener in tweeners:
-        tweenerName = tweener['name']
-        settings['scene'][sceneName]['tweeners'][tweenerName] = tweener
-    print('%s tweens loaded'%(len(settings['scene'][sceneName]['tweeners'])))
-    print('Setting keybinds for scene %s'%(sceneName))
-    for tweener in settings['scene'][sceneName]['tweeners']:
-        bindKey(sceneName, tweener['keybind'], tweener['name'])
+    scenes = obs.obs_frontend_get_scene_names()
+    if scenes is not None and len(scenes) > 0:
+        print('Configuring scene %s'%(sceneName))
+        tweeners = sceneData['tweeners']
+        settings['scene'][sceneName] = {}
+        settings['scene'][sceneName]['tweeners'] = {}
+        for tweener in tweeners:
+            tweenerName = tweener['name']
+            settings['scene'][sceneName]['tweeners'][tweenerName] = tweener
+        print('%s tweens loaded'%(len(settings['scene'][sceneName]['tweeners'])))
+        print('Setting keybinds for scene %s'%(sceneName))
+        for tweener in settings['scene'][sceneName]['tweeners']:
+            bindKey(sceneName, tweener['keybind'], tweener['name'])
 
 
 def initTween():
