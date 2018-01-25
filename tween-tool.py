@@ -6,6 +6,7 @@ import json, keyboard, configparser, os.path
 
 gSettings = None
 settings = {}
+animating = False
 
 def init(configPath):
     print('Initializing...')
@@ -43,9 +44,10 @@ def script_properties():
     return props
 
 def script_tick(tick):
-    animating = False
+    global animating
     if animating:
         print('anime')
+        animating = False
 
 def script_update(settings):
     global gSettings
@@ -59,13 +61,33 @@ def script_update(settings):
 
 #---- Utilities
 
-def setupKeybinds():
-    print('Setting keybinds...')
-
 def prepareSceneSettings(sceneData, configFilePath):
     sceneName = sceneData['sceneName']
+    print('Configuring scene %s'%(sceneName))
     tweeners = sceneData['tweeners']
     settings['scene'][sceneName] = {}
+    settings['scene'][sceneName]['tweeners'] = {}
     for tweener in tweeners:
         tweenerName = tweener['name']
-        settings['scene'][sceneName][tweenerName] = tweener
+        settings['scene'][sceneName]['tweeners'][tweenerName] = tweener
+    print('%s tweens loaded'%(len(settings['scene'][sceneName]['tweeners'])))
+    print('Setting keybinds for scene %s'%(sceneName))
+    for tweener in settings['scene'][sceneName]['tweeners']:
+        bindKey(sceneName, tweener['keybind'], tweener['name'])
+
+
+def initTween():
+    currentScene = obs.obs_frontend_get_current_scene()
+    sceneName = obs.obs_source_get_name(currentScene)
+    if settings['scene'][sceneName]:
+        print('Found %s scene data.'%(sceneName))
+        sceneObject = obs.obs_scene_from_source(currentScene)
+        sceneItems = obs.obs_scene_enum_items(sceneObject)
+
+def bindKey(scene, key, tweener):
+    print('binding %s to %s in %s'%(key, tweener, scene))
+    keyboard.add_hotkey(key, lambda: tweenTo(scene, tweener))
+
+def tweenTo(scene, tweener):
+    global animation
+    animation = True
