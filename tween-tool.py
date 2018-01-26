@@ -66,10 +66,15 @@ def script_update(nSettings):
         print('Could not load %s'%(configPath))
 
 def script_unload():
-    for key in settings['boundkeys']:
-        capture = keyboard.remove_hotkey(key)
-    gSettings = None
-    settings = None
+    try:
+        settings
+    except NameError:
+        return
+    else:
+        for key in settings['boundkeys']:
+            capture = keyboard.remove_hotkey(key)
+            gSettings = None
+            settings = None
 
 #---- Utilities
 
