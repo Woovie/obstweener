@@ -1,63 +1,12 @@
-{
-  "sceneName": "One",
-  "tweeners": [
-    {
-      "name": "position 1",
-      "keybind": "a",
-      "easeInMult": 1,
-      "easeOutMult": 1,
-      "speed": 200,
-      "items": {
-        "Cube1": {
-          "pos": {"x": 1, "y": 1},
-          "rot": 0,
-          "scale": {"x": 1, "y": 1},
-          "alignment": "alignment",
-          "bounds": {"x": 1, "y": 1},
-          "boundsType": "type",
-          "boundsAlignment": "alignment",
-          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
-        },
-        "Cube2": {
-          "pos": {"x": 1, "y": 1},
-          "rot": 0,
-          "scale": {"x": 1, "y": 1},
-          "alignment": "alignment",
-          "bounds": {"x": 1, "y": 1},
-          "boundsType": "type",
-          "boundsAlignment": "alignment",
-          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
-        }
-      }
-    },
-    {
-      "name": "position 2",
-      "keybind": "s",
-      "easeInMult": 1,
-      "easeOutMult": 1,
-      "speed": 200,
-      "items": {
-        "Cube1": {
-          "pos": {"x": 1, "y": 1},
-          "rot": 0,
-          "scale": {"x": 1, "y": 1},
-          "alignment": "alignment",
-          "bounds": {"x": 1, "y": 1},
-          "boundsType": "type",
-          "boundsAlignment": "alignment",
-          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
-        },
-        "Cube2": {
-          "pos": {"x": 1, "y": 1},
-          "rot": 0,
-          "scale": {"x": 1, "y": 1},
-          "alignment": "alignment",
-          "bounds": {"x": 1, "y": 1},
-          "boundsType": "type",
-          "boundsAlignment": "alignment",
-          "crop": {"t": 0, "b": 0, "l": 0, "r": 0}
-        }
-      }
-    }
-  ]
-}
+[
+  {
+      "sceneCollection": "Untitled",
+      "sceneName": "One",
+      "tweeners": [
+          {"tweenName": "Position One", "length": 1000.0, "tweenItems": [{"name": "Cube1", "pos": [0.0, 0.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "Cube2", "pos": [0.0, 1064.0], "rot": 0.0, "scale": [0.9399999976158142, 0.9399999976158142], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "keyboardlogo", "pos": [128.0, 727.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 0, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "aaaaaa", "pos": [809.0, 627.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [0.0, 0.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}]},
+          {"tweenName": "Position Two", "length": 1000.0, "tweenItems": [{"name": "Cube1", "pos": [2160.0, 0.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "Cube2", "pos": [2184.0, 1064.0], "rot": 0.0, "scale": [0.9399999976158142, 0.9399999976158142], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "keyboardlogo", "pos": [1246.0, 293.0], "rot": 90.0, "scale": [1.0, 1.0], "alignment": 0, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "aaaaaa", "pos": [809.0, 627.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [0.0, 0.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}]},
+          {"tweenName": "Position Three", "length": 1000.0, "tweenItems": [{"name": "Cube1", "pos": [0.0, 1040.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "Cube2", "pos": [0.0, 0.0], "rot": 0.0, "scale": [0.9399999976158142, 0.9399999976158142], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "keyboardlogo", "pos": [1057.0, 1256.0], "rot": 270.0, "scale": [1.0, 1.0], "alignment": 0, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "aaaaaa", "pos": [809.0, 627.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [0.0, 0.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}]},
+          {"tweenName": "Position Four", "length": 1000.0, "tweenItems": [{"name": "Cube1", "pos": [370.0, 59.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "Cube2", "pos": [592.0, 626.0], "rot": 0.0, "scale": [0.9399999976158142, 0.9399999976158142], "alignment": 5, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "keyboardlogo", "pos": [1269.0, 941.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 0, "bounds": [1.0, 1.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}, {"name": "aaaaaa", "pos": [1656.0, 181.0], "rot": 0.0, "scale": [1.0, 1.0], "alignment": 5, "bounds": [0.0, 0.0], "boundsType": 0, "boundsAlignment": 0, "crop": [0, 0, 0, 0]}]}
+      ]
+  }
+]
