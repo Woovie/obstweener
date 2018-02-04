@@ -31,7 +31,8 @@ def script_load(settings):
                 if os.path.isfile(tweenerConfig):
                     with open(tweenerConfig) as jsonData:
                         loadConfig(json.load(jsonData))
-    obs.obs_hotkey_register_frontend('dumpSceneData', 'tweentool - printSceneData', printSceneData)
+    obs.obs_hotkey_register_frontend('printSceneData', 'Tweener - Print current scene setup', printSceneData)
+    obs.obs_hotkey_register_frontend('printBaseData', 'Tweener - Print base JSON file data', printBaseData)
 
 def script_properties():
     props = obs.obs_properties_create()
@@ -41,7 +42,8 @@ def script_properties():
 def script_unload():
     for function in scriptSettings['tweenerFunctions']:
         obs.obs_hotkey_unregister(function)
-    obs.obs_hotkey_unregister(dumpSceneData)
+    obs.obs_hotkey_unregister(printSceneData)
+    obs.obs_hotkey_unregister(printBaseData)
     obs.obs_data_release(obsSettings)
 
 def script_update(settings):
