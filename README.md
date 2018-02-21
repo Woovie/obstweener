@@ -1,6 +1,4 @@
-# obs-tweener
+# obstweener
 Tweening tools for OBS
 
-Configuration line is manually set right now inside obs.py, configuration file was manually modified. This will all be generated in the future.
-
-Idea, code, and help given by @VodBox https://github.com/VodBox/obs-scripts
+All code here is a temporary example of a working version of the script. It will be replaced once I am ready to push my code public.
